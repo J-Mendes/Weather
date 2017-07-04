@@ -16,10 +16,14 @@ class NetworkService {
         self.session = session
     }
     
-    internal func cancelAllRequests() {
+    internal func cancelAllRequests(completion: (() -> Void)? = nil) {
         self.session.getAllTasks { (tasks: [URLSessionTask]) in
             tasks.forEach {
                 $0.cancel()
+            }
+            
+            if completion != nil {
+                completion!()
             }
         }
     }

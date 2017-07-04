@@ -13,7 +13,7 @@ extension NetworkService {
     // MARK: - Weather Requests
     
     internal func getWeather(place: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
-        let urlString: String = String(format: NetworkConstants.Url.weatherForecast, place)
+        let urlString: String = String(format: NetworkConstants.Url.weatherForecast, place).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
         self.session.dataTask(with: URL(string: urlString)!) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {
