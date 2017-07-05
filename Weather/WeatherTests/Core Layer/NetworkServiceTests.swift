@@ -31,6 +31,10 @@ class NetworkServiceTests: XCTestCase {
         XCTAssertNotNil(self.networkService)
     }
     
+    internal func testSessionInstance() {
+        XCTAssertNotNil(self.networkService.session)
+    }
+    
     internal func testWeatherRequestSuccess() {
         let requestExpectation: XCTestExpectation = expectation(description: "weatherSuccess")
         
