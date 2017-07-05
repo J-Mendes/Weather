@@ -22,13 +22,13 @@
 		75F189691F0C48A4001DE3DF /* DataService+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189681F0C48A4001DE3DF /* DataService+Weather.swift */; };
 		75F1896B1F0C4981001DE3DF /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1896A1F0C4981001DE3DF /* Units.swift */; };
 		75F1896D1F0C4AF4001DE3DF /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1896C1F0C4AF4001DE3DF /* WeatherData.swift */; };
-		75F189701F0C4DC0001DE3DF /* String+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1896F1F0C4DC0001DE3DF /* String+Weather.swift */; };
 		75F189721F0C5551001DE3DF /* Wind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189711F0C5551001DE3DF /* Wind.swift */; };
 		75F189741F0C5617001DE3DF /* Atmosphere.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189731F0C5617001DE3DF /* Atmosphere.swift */; };
 		75F189761F0C56D8001DE3DF /* Astronomy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189751F0C56D8001DE3DF /* Astronomy.swift */; };
 		75F189781F0C57FE001DE3DF /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189771F0C57FE001DE3DF /* Weather.swift */; };
 		75F1897A1F0C5995001DE3DF /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189791F0C5995001DE3DF /* Condition.swift */; };
 		75F1897C1F0C5A73001DE3DF /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1897B1F0C5A73001DE3DF /* Forecast.swift */; };
+		75F1897E1F0C5DD7001DE3DF /* DataServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F1897D1F0C5DD7001DE3DF /* DataServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,13 +70,13 @@
 		75F189681F0C48A4001DE3DF /* DataService+Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DataService+Weather.swift"; path = "Core Layer/Data/DataService+Weather.swift"; sourceTree = "<group>"; };
 		75F1896A1F0C4981001DE3DF /* Units.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Units.swift; path = "Core Layer/Data Model/Units.swift"; sourceTree = "<group>"; };
 		75F1896C1F0C4AF4001DE3DF /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherData.swift; path = "Core Layer/Data Model/WeatherData.swift"; sourceTree = "<group>"; };
-		75F1896F1F0C4DC0001DE3DF /* String+Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Weather.swift"; path = "Extensions/String+Weather.swift"; sourceTree = "<group>"; };
 		75F189711F0C5551001DE3DF /* Wind.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wind.swift; path = "Core Layer/Data Model/Wind.swift"; sourceTree = "<group>"; };
 		75F189731F0C5617001DE3DF /* Atmosphere.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Atmosphere.swift; path = "Core Layer/Data Model/Atmosphere.swift"; sourceTree = "<group>"; };
 		75F189751F0C56D8001DE3DF /* Astronomy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Astronomy.swift; path = "Core Layer/Data Model/Astronomy.swift"; sourceTree = "<group>"; };
 		75F189771F0C57FE001DE3DF /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Weather.swift; path = "Core Layer/Data Model/Weather.swift"; sourceTree = "<group>"; };
 		75F189791F0C5995001DE3DF /* Condition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Condition.swift; path = "Core Layer/Data Model/Condition.swift"; sourceTree = "<group>"; };
 		75F1897B1F0C5A73001DE3DF /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Forecast.swift; path = "Core Layer/Data Model/Forecast.swift"; sourceTree = "<group>"; };
+		75F1897D1F0C5DD7001DE3DF /* DataServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataServiceTests.swift; path = "Core Layer/DataServiceTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +132,6 @@
 				75DEDA111F0C2FB500297ADE /* Main.storyboard */,
 				75DEDA161F0C2FB500297ADE /* LaunchScreen.storyboard */,
 				75DEDA3B1F0C30FB00297ADE /* Core Layer */,
-				75F1896E1F0C4D9B001DE3DF /* Extensions */,
 				75DEDA141F0C2FB500297ADE /* Assets.xcassets */,
 				75DEDA191F0C2FB500297ADE /* Info.plist */,
 			);
@@ -182,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				75DEDA451F0C3CB300297ADE /* NetworkServiceTests.swift */,
+				75F1897D1F0C5DD7001DE3DF /* DataServiceTests.swift */,
 			);
 			name = "Core Layer";
 			sourceTree = "<group>";
@@ -208,14 +208,6 @@
 				75F1897B1F0C5A73001DE3DF /* Forecast.swift */,
 			);
 			name = "Data Model";
-			sourceTree = "<group>";
-		};
-		75F1896E1F0C4D9B001DE3DF /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				75F1896F1F0C4DC0001DE3DF /* String+Weather.swift */,
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -356,7 +348,6 @@
 				75DEDA421F0C390000297ADE /* NetworkService+Weather.swift in Sources */,
 				75F1896B1F0C4981001DE3DF /* Units.swift in Sources */,
 				75DEDA401F0C320700297ADE /* NetworkConstants.swift in Sources */,
-				75F189701F0C4DC0001DE3DF /* String+Weather.swift in Sources */,
 				75F1897A1F0C5995001DE3DF /* Condition.swift in Sources */,
 				75F189721F0C5551001DE3DF /* Wind.swift in Sources */,
 				75DEDA101F0C2FB500297ADE /* ViewController.swift in Sources */,
@@ -375,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F1897E1F0C5DD7001DE3DF /* DataServiceTests.swift in Sources */,
 				75DEDA461F0C3CB300297ADE /* NetworkServiceTests.swift in Sources */,
 				75DEDA231F0C2FB500297ADE /* WeatherTests.swift in Sources */,
 			);

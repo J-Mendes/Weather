@@ -16,4 +16,8 @@ class DataService {
         self.networkService = networkService
     }
     
+    deinit {
+        self.networkService = nil
+    }
+    
 }

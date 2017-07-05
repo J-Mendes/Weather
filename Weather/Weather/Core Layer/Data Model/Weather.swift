@@ -12,14 +12,14 @@ struct Weather {
 
     internal var latitude: Double!
     internal var longitude: Double!
-    internal var publishDate: Date!
+    internal var publishDate: String!
     internal var condition: Condition!
     internal var forecast: [Forecast]!
     
     init() {
         self.latitude = 0.0
         self.longitude = 0.0
-        self.publishDate = Date()
+        self.publishDate = ""
         self.condition = Condition()
         self.forecast = []
     }
@@ -37,8 +37,7 @@ struct Weather {
             self.longitude = longitude
         }
         
-        if let pubDate: String = dictionary["pubDate"] as? String,
-            let publishDate: Date = pubDate.longDateValue() {
+        if let publishDate: String = dictionary["pubDate"] as? String {
             self.publishDate = publishDate
         }
         

@@ -11,13 +11,13 @@ import Foundation
 struct Condition {
 
     internal var code: String!
-    internal var date: Date!
+    internal var date: String!
     internal var temperature: String!
     internal var text: String!
     
     init() {
         self.code = ""
-        self.date = Date()
+        self.date = ""
         self.temperature = ""
         self.text = ""
     }
@@ -29,8 +29,7 @@ struct Condition {
             self.code = code
         }
         
-        if let dateString: String = dictionary["date"] as? String,
-            let date: Date = dateString.longDateValue() {
+        if let date: String = dictionary["date"] as? String {
             self.date = date
         }
         
