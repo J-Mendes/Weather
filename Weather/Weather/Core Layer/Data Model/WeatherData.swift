@@ -13,7 +13,6 @@ struct WeatherData {
     internal var units: Units!
     internal var city: String!
     internal var country: String!
-    internal var lastUpdateDate: String!
     internal var wind: Wind!
     internal var atmosphere: Atmosphere!
     internal var astronomy: Astronomy!
@@ -23,7 +22,6 @@ struct WeatherData {
         self.units = Units()
         self.city = ""
         self.country = ""
-        self.lastUpdateDate = ""
         self.wind = Wind()
         self.atmosphere = Atmosphere()
         self.astronomy = Astronomy()
@@ -45,10 +43,6 @@ struct WeatherData {
             if let country: String = location["country"] as? String {
                 self.country = country
             }
-        }
-        
-        if let lastUpdateDate: String = dictionary["lastBuildDate"] as? String {
-            self.lastUpdateDate = lastUpdateDate
         }
         
         if let wind: [String: Any] = dictionary["wind"] as? [String: Any] {

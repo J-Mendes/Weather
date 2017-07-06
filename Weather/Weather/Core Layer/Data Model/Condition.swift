@@ -10,14 +10,18 @@ import Foundation
 
 struct Condition {
 
+    fileprivate let ImageUrlTemplate: String = "http://l.yimg.com/a/i/us/we/52/%@.gif"
+    
     internal var code: String!
-    internal var date: String!
     internal var temperature: String!
     internal var text: String!
     
+    internal var imageUrl: String {
+        return code != nil && !code.isEmpty ? String(format: self.ImageUrlTemplate, self.code) : ""
+    }
+    
     init() {
         self.code = ""
-        self.date = ""
         self.temperature = ""
         self.text = ""
     }
@@ -27,10 +31,6 @@ struct Condition {
         
         if let code: String = dictionary["code"] as? String {
             self.code = code
-        }
-        
-        if let date: String = dictionary["date"] as? String {
-            self.date = date
         }
         
         if let temperature: String = dictionary["temp"] as? String {

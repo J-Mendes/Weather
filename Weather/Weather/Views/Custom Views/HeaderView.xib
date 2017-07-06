@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="Weather" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-C7-7bw">
+                    <rect key="frame" x="16" y="645" width="343" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYK-Hx-CFL">
+                    <rect key="frame" x="16" y="666" width="343" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="baU-xx-ZbC"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="zfq-C7-7bw" firstAttribute="trailing" secondItem="MYK-Hx-CFL" secondAttribute="trailing" id="Pi1-1a-d91"/>
+                <constraint firstAttribute="bottom" secondItem="MYK-Hx-CFL" secondAttribute="bottom" id="TWJ-gq-kdD"/>
+                <constraint firstAttribute="trailing" secondItem="MYK-Hx-CFL" secondAttribute="trailing" constant="16" id="U0U-7n-rry"/>
+                <constraint firstItem="zfq-C7-7bw" firstAttribute="leading" secondItem="MYK-Hx-CFL" secondAttribute="leading" id="bxz-DN-x8S"/>
+                <constraint firstItem="MYK-Hx-CFL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="kaz-pK-oRN"/>
+                <constraint firstItem="MYK-Hx-CFL" firstAttribute="top" secondItem="zfq-C7-7bw" secondAttribute="bottom" id="yyt-y6-KMr"/>
+            </constraints>
+            <connections>
+                <outlet property="separatorViewHeightConstraint" destination="baU-xx-ZbC" id="ns3-6W-Ywb"/>
+                <outlet property="titleLabel" destination="zfq-C7-7bw" id="clG-Zp-ubu"/>
+            </connections>
+        </view>
+    </objects>
+</document>

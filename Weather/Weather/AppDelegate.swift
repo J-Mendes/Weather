@@ -13,9 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // inject dependencies on first view controller
+        if let navigationController: UINavigationController = window?.rootViewController as? UINavigationController,
+            let firstViewController: WeatherTableViewController = navigationController.viewControllers.first as? WeatherTableViewController {
+            firstViewController.dataService = DataService()
+        }
+        
         return true
     }
 
@@ -41,6 +46,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-
