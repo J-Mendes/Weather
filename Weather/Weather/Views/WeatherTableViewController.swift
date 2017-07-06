@@ -147,7 +147,7 @@ class WeatherTableViewController: UITableViewController {
     
     // MARK: - Private methods
     
-    @objc internal func getWeatherInfo() {
+    @objc fileprivate func getWeatherInfo() {
         guard self.dataService != nil else {
             ErrorView.show(view: self.view)
             self.refreshControl?.endRefreshing()

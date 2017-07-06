@@ -45,6 +45,9 @@
 		75F189B21F0DCBDE001DE3DF /* UIColor+Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189B11F0DCBDE001DE3DF /* UIColor+Weather.swift */; };
 		75F189B51F0DD549001DE3DF /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189B41F0DD549001DE3DF /* ErrorView.swift */; };
 		75F189B71F0DD556001DE3DF /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75F189B61F0DD556001DE3DF /* ErrorView.xib */; };
+		75F189BA1F0DE103001DE3DF /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189B91F0DE103001DE3DF /* StringExtensionTests.swift */; };
+		75F189BC1F0DE34F001DE3DF /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189BB1F0DE34F001DE3DF /* DateExtensionTests.swift */; };
+		75F189BF1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189BE1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +114,9 @@
 		75F189B31F0DD443001DE3DF /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		75F189B41F0DD549001DE3DF /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorView.swift; path = "Views/Custom Views/ErrorView.swift"; sourceTree = "<group>"; };
 		75F189B61F0DD556001DE3DF /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ErrorView.xib; path = "Views/Custom Views/ErrorView.xib"; sourceTree = "<group>"; };
+		75F189B91F0DE103001DE3DF /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringExtensionTests.swift; path = Extensions/StringExtensionTests.swift; sourceTree = "<group>"; };
+		75F189BB1F0DE34F001DE3DF /* DateExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensionTests.swift; path = Extensions/DateExtensionTests.swift; sourceTree = "<group>"; };
+		75F189BE1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherTableViewControllerTests.swift; path = Views/WeatherTableViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				75DEDA221F0C2FB500297ADE /* WeatherTests.swift */,
+				75F189BD1F0DE9C7001DE3DF /* Views */,
+				75F189B81F0DE0CD001DE3DF /* Extensions */,
 				75DEDA441F0C3C9900297ADE /* Core Layer */,
 				75DEDA241F0C2FB500297ADE /* Info.plist */,
 			);
@@ -290,6 +298,23 @@
 				75F189AB1F0DBCB5001DE3DF /* HeaderView.xib */,
 			);
 			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		75F189B81F0DE0CD001DE3DF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75F189B91F0DE103001DE3DF /* StringExtensionTests.swift */,
+				75F189BB1F0DE34F001DE3DF /* DateExtensionTests.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		75F189BD1F0DE9C7001DE3DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75F189BE1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -467,6 +492,9 @@
 			files = (
 				75F1897E1F0C5DD7001DE3DF /* DataServiceTests.swift in Sources */,
 				75DEDA461F0C3CB300297ADE /* NetworkServiceTests.swift in Sources */,
+				75F189BF1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift in Sources */,
+				75F189BA1F0DE103001DE3DF /* StringExtensionTests.swift in Sources */,
+				75F189BC1F0DE34F001DE3DF /* DateExtensionTests.swift in Sources */,
 				75DEDA231F0C2FB500297ADE /* WeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

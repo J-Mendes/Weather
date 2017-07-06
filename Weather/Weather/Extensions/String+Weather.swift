@@ -9,13 +9,6 @@
 import Foundation
 
 extension String {
-
-    // MARK: - Validations
-    
-    internal func isEmpty() -> Bool {
-        return self == ""
-    }
-    
     
     // MARK: - Converters
     
