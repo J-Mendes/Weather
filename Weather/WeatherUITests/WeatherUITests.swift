@@ -30,6 +30,12 @@ class WeatherUITests: XCTestCase {
         super.tearDown()
     }
     
+    func testAppBackgroundCoverView() {
+        XCUIDevice.shared().press(.home)
+        sleep(2)
+        self.app.launch()
+    }
+    
     func testDataFetch() {
         XCTAssertTrue(self.app.tables.cells.count > 0)
     }
@@ -39,18 +45,16 @@ class WeatherUITests: XCTestCase {
     }
     
     func testScrollBottom() {
-        for i in 0..<(self.app.tables.cells.count - 1) {
+        for i in 0..<(self.app.tables.cells.count - 3) {
             self.app.tables.children(matching: .cell).element(boundBy: i).swipeUp()
         }
-        XCTAssert(true)
     }
     
     func testScrollToTop() {
-        for i in 0..<(self.app.tables.cells.count - 1) {
+        for i in 0..<(self.app.tables.cells.count / 2) {
             self.app.tables.children(matching: .cell).element(boundBy: i).swipeUp()
         }
         self.app.statusBars.element.tap()
-        XCTAssert(true)
     }
     
 }
