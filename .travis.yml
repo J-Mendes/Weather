@@ -1,5 +1,0 @@
-language: swift
-osx_image: xcode8.3
-xcode_project: Weather/Weather.xcodeproj
-xcode_scheme: WeatherTests
-xcode_sdk: iphonesimulator9.3
