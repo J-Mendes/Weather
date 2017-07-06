@@ -10,17 +10,21 @@ import Foundation
 
 struct Forecast {
 
+    fileprivate let ImageUrlTemplate: String = "http://l.yimg.com/a/i/us/we/52/%@.gif"
+    
     internal var code: String!
-    internal var date: String!
-    internal var day: String!
+    internal var date: Date!
     internal var high: String!
     internal var low: String!
     internal var text: String!
     
+    internal var imageUrl: String {
+        return code != nil && !code.isEmpty ? String(format: self.ImageUrlTemplate, self.code) : ""
+    }
+    
     init() {
         self.code = ""
-        self.date = ""
-        self.day = ""
+        self.date = Date()
         self.high = ""
         self.low = ""
         self.text = ""
@@ -33,12 +37,9 @@ struct Forecast {
             self.code = code
         }
         
-        if let date: String = dictionary["date"] as? String {
+        if let dateString: String = dictionary["date"] as? String,
+            let date: Date = dateString.dateValueFromShortDate() {
             self.date = date
-        }
-        
-        if let day: String = dictionary["day"] as? String {
-            self.day = day
         }
         
         if let high: String = dictionary["high"] as? String {

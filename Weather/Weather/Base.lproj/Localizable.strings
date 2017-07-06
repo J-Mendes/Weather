@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Weather
+
+  Created by Jorge Mendes on 05/07/17.
+  Copyright © 2017 Jorge Mendes. All rights reserved.
+*/
+
+"updating_wheather" = "Updating weather data...";
+"pull_refresh" = "▼ Pull down to refresh ▼";
+
+"error_generic" = "An error has occurred. Please try again.";
+"error_place" = "This place is invalid. Please select a valid one.";
+
+"tomorrow" = "Tomorrow";
+"details" = "Details";
+"forecast" = "Forecast";
+
+"humidity" = "Humidity";
+"visibility" = "Visibility";
+"wind" = "Wind speed";
+"sunrise" = "Sunrise";
+"sunset" = "Sunset";

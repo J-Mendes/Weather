@@ -35,6 +35,9 @@ class DataServiceTests: XCTestCase {
         XCTAssertNotNil(self.dataService.networkService)
     }
     
+    
+    // MARK: - Weather data
+    
     internal func testWeatherRequestSuccess() {
         let requestExpectation: XCTestExpectation = expectation(description: "weatherSuccess")
         

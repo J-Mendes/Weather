@@ -10,22 +10,24 @@ import Foundation
 
 struct Astronomy {
 
-    internal var sunrise: String!
-    internal var sunset: String!
+    internal var sunrise: Date!
+    internal var sunset: Date!
     
     init() {
-        self.sunrise = ""
-        self.sunset = ""
+        self.sunrise = Date()
+        self.sunset = Date()
     }
     
     init(dictionary: [String: Any]) {
         self.init()
         
-        if let sunrise: String = dictionary["sunrise"] as? String {
+        if let sunriseString: String = dictionary["sunrise"] as? String,
+            let sunrise: Date = sunriseString.dateValueFromHour() {
             self.sunrise = sunrise
         }
         
-        if let sunset: String = dictionary["sunset"] as? String {
+        if let sunsetString: String = dictionary["sunset"] as? String,
+            let sunset: Date = sunsetString.dateValueFromHour() {
             self.sunset = sunset
         }
     }

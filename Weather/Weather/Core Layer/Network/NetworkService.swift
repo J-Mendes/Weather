@@ -20,6 +20,21 @@ class NetworkService {
         self.session = nil
     }
     
+    internal func cancelRequests(url: String, completion: (() -> Void)? = nil) {
+        self.session.getAllTasks { (tasks: [URLSessionTask]) in
+            tasks.forEach {
+                if let link: String = $0.originalRequest?.url?.absoluteString,
+                    link == url {
+                    $0.cancel()
+                }
+            }
+            
+            if completion != nil {
+                completion!()
+            }
+        }
+    }
+    
     internal func cancelAllRequests(completion: (() -> Void)? = nil) {
         self.session.getAllTasks { (tasks: [URLSessionTask]) in
             tasks.forEach {
