@@ -35,7 +35,6 @@ class WeatherTableViewController: UITableViewController {
         super.loadView()
         
         // Init layout
-        self.refreshControl?.tintColor = UIColor.white
         self.refreshControl?.addTarget(self, action: #selector(WeatherTableViewController.getWeatherInfo), for: .valueChanged)
         self.refreshControl?.attributedTitle = NSAttributedString(string: NSLocalizedString("updating_wheather", comment: ""), attributes: [NSForegroundColorAttributeName: UIColor.white])
         
