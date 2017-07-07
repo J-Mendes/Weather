@@ -39,16 +39,22 @@ extension DataService {
                         result += code
                     }
                     
-                    if !result.isEmpty {
-                        completion(result, nil)
-                    } else {
-                        completion(nil, nil)
+                    DispatchQueue.main.async {
+                        if !result.isEmpty {
+                            completion(result, nil)
+                        } else {
+                            completion(nil, nil)
+                        }
                     }
                 } else {
-                    completion(nil, nil)
+                    DispatchQueue.main.async {
+                        completion(nil, nil)
+                    }
                 }
             } else {
-                completion(nil, error)
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
             }
         }
     }

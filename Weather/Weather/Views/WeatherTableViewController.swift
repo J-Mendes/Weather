@@ -60,7 +60,6 @@ class WeatherTableViewController: UITableViewController {
         // Load place
         if let place: String = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.location) {
             self.place = place
-            self.title = self.place
         } else {
             self.place = Constants.DefaultValues.defaultLocation
             UserDefaults.standard.set(self.place, forKey: Constants.UserDefaultsKeys.location)
@@ -210,14 +209,14 @@ class WeatherTableViewController: UITableViewController {
             if error == nil {
                 if weatherData != nil {
                     self.weatherInfo = weatherData;
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
+                    self.tableView.reloadData()
                 } else {
                     ErrorView.show(view: self.view, title: NSLocalizedString("error_place", comment: ""))
                 }
             } else {
-                ErrorView.show(view: self.view)
+                DispatchQueue.main.async {
+                    ErrorView.show(view: self.view)
+                }
             }
             
             ErrorView.dismiss(view: self.view)
