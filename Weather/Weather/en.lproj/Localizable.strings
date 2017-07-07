@@ -21,3 +21,14 @@
 "wind" = "Wind speed";
 "sunrise" = "Sunrise";
 "sunset" = "Sunset";
+
+"settings" = "Settings";
+"location" = "Location";
+"unit" = "Unit";
+"imperial" = "Imperial";
+"metric" = "Metric";
+
+"map_description" = "Tap on the map to choose a new place.";
+"no_permission_request" = "Location permissions are required for a better user experience. Please give them in Settings.";
+"ignore_button" = "Ignore";
+"settings_button" = "Settings";

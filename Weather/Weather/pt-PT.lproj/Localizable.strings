@@ -21,3 +21,14 @@
 "wind" = "Velocidade do vento";
 "sunrise" = "Nascer do sol";
 "sunset" = "Pôr do sol";
+
+"settings" = "Definições";
+"location" = "Localização";
+"unit" = "Unidade";
+"imperial" = "Imperial";
+"metric" = "Métrica";
+
+"map_description" = "Toque no mapa para definir uma nova localização.";
+"no_permission_request" = "São necessárias permissões de localização para obter uma melhor experiência de utilização. Por favor conceda-as nas Definições.";
+"ignore_button" = "Ignorar";
+"settings_button" = "Definições";

@@ -12,6 +12,10 @@ class WeatherTableViewController: UITableViewController {
 
     internal var dataService: DataService?
 
+    fileprivate enum Segues: String {
+        case Settings = "showSettingsSegue"
+    }
+    
     fileprivate enum TableSections: Int {
         case Info = 0, Details, Forecast, Count
     }
@@ -20,7 +24,8 @@ class WeatherTableViewController: UITableViewController {
         case Humidity = 0, Visibility, Wind, Sunrise, Sunset, Count
     }
     
-    fileprivate var place: String = "Lisbon, pt"
+    fileprivate var place: String!
+    fileprivate var unitsType: Int!
     fileprivate var weatherInfo: WeatherData? {
         didSet {
             if self.weatherInfo != nil {
@@ -35,6 +40,8 @@ class WeatherTableViewController: UITableViewController {
         super.loadView()
         
         // Init layout
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "settings"), style: .done, target: self, action: #selector(showSettings(_:)))
+        
         self.refreshControl?.addTarget(self, action: #selector(WeatherTableViewController.getWeatherInfo), for: .valueChanged)
         self.refreshControl?.attributedTitle = NSAttributedString(string: NSLocalizedString("updating_wheather", comment: ""), attributes: [NSForegroundColorAttributeName: UIColor.white])
         
@@ -49,6 +56,25 @@ class WeatherTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Load place
+        if let place: String = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.location) {
+            self.place = place
+        } else {
+            self.place = Constants.DefaultValues.defaultLocation
+            UserDefaults.standard.set(self.place, forKey: Constants.UserDefaultsKeys.location)
+            UserDefaults.standard.synchronize()
+        }
+        
+        // Load units
+        let units: Int = UserDefaults.standard.integer(forKey: Constants.UserDefaultsKeys.units)
+        if units > 0 {
+            self.unitsType = units
+        } else {
+            self.unitsType = Constants.DefaultValues.defaultUnit
+            UserDefaults.standard.set(self.unitsType, forKey: Constants.UserDefaultsKeys.units)
+            UserDefaults.standard.synchronize()
+        }
+        
         // Load weather data
         self.refreshControl?.beginRefreshing()
         self.getWeatherInfo()
@@ -144,6 +170,21 @@ class WeatherTableViewController: UITableViewController {
     }
     
     
+    // MARK: - Navigation
+     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.Settings.rawValue {
+            let settingsViewController: SettingsTableViewController = segue.destination as! SettingsTableViewController
+            settingsViewController.currentLocation = self.place
+            settingsViewController.currentUnit = self.unitsType
+        }
+    }
+    
+    @IBAction func showSettings(_ sender: Any?) {
+        self.performSegue(withIdentifier: Segues.Settings.rawValue, sender: self)
+    }
+    
+    
     // MARK: - Private methods
     
     @objc fileprivate func getWeatherInfo() {
@@ -153,7 +194,7 @@ class WeatherTableViewController: UITableViewController {
             return
         }
         
-        self.dataService?.getWeather(place: self.place, completion: { (weatherData: WeatherData?, error: Error?) in
+        self.dataService?.getWeather(place: self.place, units: self.unitsType, completion: { (weatherData: WeatherData?, error: Error?) in
             if error == nil {
                 if weatherData != nil {
                     self.weatherInfo = weatherData;
