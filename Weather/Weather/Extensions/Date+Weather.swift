@@ -28,7 +28,9 @@ extension Date {
     }
     
     internal func hourFormat() -> String {
-        return "\(Calendar.current.component(.hour, from: self)):\(Calendar.current.component(.minute, from: self))"
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "H:mm"
+        return formatter.string(from: self)
     }
     
 }
