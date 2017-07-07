@@ -12,8 +12,8 @@ extension DataService {
 
     // MARK: Weather Data
     
-    internal func getWeather(place: String, completion: @escaping (WeatherData?, Error?) -> Void) {
-        self.networkService.getWeather(place: place) { (data: [String : Any]?, error: Error?) in
+    internal func getWeather(place: String, units: Int, completion: @escaping (WeatherData?, Error?) -> Void) {
+        self.networkService.getWeather(place: place, units: units) { (data: [String : Any]?, error: Error?) in
             if error == nil {
                 if data != nil,
                     let query: [String: Any] = data!["query"] as? [String: Any],

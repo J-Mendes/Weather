@@ -8,9 +8,11 @@
 
 "updating_wheather" = "Updating weather data...";
 "pull_refresh" = "▼ Pull down to refresh ▼";
+"updating_place" = "Updating place...";
 
 "error_generic" = "An error has occurred. Please try again.";
 "error_place" = "This place is invalid. Please select a valid one.";
+"error_updating_place" = "There are no info for this place. Please select another one.";
 
 "tomorrow" = "Tomorrow";
 "details" = "Details";
@@ -21,3 +23,14 @@
 "wind" = "Wind speed";
 "sunrise" = "Sunrise";
 "sunset" = "Sunset";
+
+"settings" = "Settings";
+"location" = "Location";
+"unit" = "Unit";
+"imperial" = "Imperial";
+"metric" = "Metric";
+
+"map_description" = "Long press on the map to choose a new place.";
+"no_permission_request" = "Location permissions are required for a better user experience. Please give them in Settings.";
+"ignore_button" = "Ignore";
+"settings_button" = "Settings";

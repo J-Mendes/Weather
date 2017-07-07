@@ -57,7 +57,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Appearance overrides
     
     fileprivate func setupAppearance() {
+        UINavigationBar.appearance().tintColor = UIColor.neutralBlueColor()
+        
         UIRefreshControl.appearance().tintColor = UIColor.white
+        UIProgressView.appearance(whenContainedInInstancesOf: [UIRefreshControl.self]).tintColor = UIColor.white
+        
+        UITableViewCell.appearance().tintColor = UIColor.white
     }
 
 }

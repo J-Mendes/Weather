@@ -7,11 +7,13 @@
 //
 
 import XCTest
+import MapKit
 @testable import Weather
 
 class DataServiceTests: XCTestCase {
     
-    fileprivate let validPlace: String = "Lisbon"
+    fileprivate let validPlace: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 38.727537, longitude: -9.139263)
+    fileprivate let invalidPlace: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     fileprivate var dataService: DataService!
     
@@ -41,8 +43,8 @@ class DataServiceTests: XCTestCase {
     internal func testWeatherRequestSuccess() {
         let requestExpectation: XCTestExpectation = expectation(description: "weatherSuccess")
         
-        self.dataService.getWeather(place: validPlace) { (weather: WeatherData?, error: Error?) in
-            if error == nil && weather != nil {
+        self.dataService.getWeather(place: Constants.DefaultValues.defaultLocation, units: Constants.DefaultValues.defaultUnit) { (weather: WeatherData?, error: Error?) in
+            if error == nil {
                 XCTAssertNotNil(weather)
             } else {
                 XCTFail()
@@ -57,8 +59,77 @@ class DataServiceTests: XCTestCase {
     internal func testWeatherRequestFail() {
         let requestExpectation: XCTestExpectation = expectation(description: "weatherFail")
         
-        self.dataService.getWeather(place: "") { (weather: WeatherData?, error: Error?) in
+        self.dataService.getWeather(place: "", units: Constants.DefaultValues.defaultUnit) { (weather: WeatherData?, error: Error?) in
             XCTAssertTrue(weather == nil && error == nil)
+            
+            requestExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30.0, handler: nil)
+    }
+    
+    internal func testWeatherUnitsImperialSuccess() {
+        let requestExpectation: XCTestExpectation = expectation(description: "weatherImperialUnits")
+        
+        self.dataService.getWeather(place: Constants.DefaultValues.defaultLocation, units: Constants.UnitsType.Imperial.rawValue) { (weather: WeatherData?, error: Error?) in
+            if error == nil {
+                XCTAssertNotNil(weather)
+                XCTAssertEqual(weather?.units.temperature.lowercased(), "f")
+            } else {
+                XCTFail()
+            }
+            
+            requestExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30.0, handler: nil)
+    }
+    
+    internal func testWeatherUnitsMetricSuccess() {
+        let requestExpectation: XCTestExpectation = expectation(description: "weatherMetricUnits")
+        
+        self.dataService.getWeather(place: Constants.DefaultValues.defaultLocation, units: Constants.UnitsType.Metric.rawValue) { (weather: WeatherData?, error: Error?) in
+            if error == nil {
+                XCTAssertNotNil(weather)
+                XCTAssertEqual(weather?.units.temperature.lowercased(), "c")
+            } else {
+                XCTFail()
+            }
+            
+            requestExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30.0, handler: nil)
+    }
+    
+    
+    // MARK: - Place request
+    
+    internal func testPlaceRequestSuccess() {
+        let requestExpectation: XCTestExpectation = expectation(description: "placeSuccess")
+        
+        self.dataService.getPlace(latitude: self.validPlace.latitude, longitude: self.validPlace.longitude) { (place: String?, error: Error?) in
+            if error == nil {
+                XCTAssertNotNil(place)
+            } else {
+                XCTFail()
+            }
+            
+            requestExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30.0, handler: nil)
+    }
+    
+    internal func testPlaceRequestFail() {
+        let requestExpectation: XCTestExpectation = expectation(description: "placeFail")
+        
+        self.dataService.getPlace(latitude: self.invalidPlace.latitude, longitude: self.invalidPlace.longitude) { (place: String?, error: Error?) in
+            if error == nil {
+                XCTAssertNil(place)
+            } else {
+                XCTFail()
+            }
             
             requestExpectation.fulfill()
         }

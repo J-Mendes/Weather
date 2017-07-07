@@ -1,8 +1,8 @@
 //
-//  NetworkService+Weather.swift
+//  NetworkService+Place.swift
 //  Weather
 //
-//  Created by Jorge Mendes on 04/07/17.
+//  Created by Jorge Mendes on 07/07/2017.
 //  Copyright © 2017 Jorge Mendes. All rights reserved.
 //
 
@@ -10,10 +10,10 @@ import Foundation
 
 extension NetworkService {
 
-    // MARK: - Weather Requests
+    // MARK: - Place Requests
     
-    internal func getWeather(place: String, units: Int, completion: @escaping ([String: Any]?, Error?) -> Void) {
-        let urlString: String = String(format: NetworkConstants.Url.weatherForecast, place, (units == Constants.UnitsType.Metric.rawValue ? NetworkConstants.Url.weatherUnitsModifier : "")).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
+    internal func getPlace(latitude: Double, longitude: Double, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        let urlString: String = String(format: NetworkConstants.Url.place, latitude, longitude).addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
         
         self.session.dataTask(with: URL(string: urlString)!) { (data: Data?, response: URLResponse?, error: Error?) in
             if error == nil {

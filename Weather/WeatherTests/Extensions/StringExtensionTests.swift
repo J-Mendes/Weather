@@ -29,7 +29,7 @@ class StringExtensionTests: XCTestCase {
     }
     
     func testShortDateFailure() {
-        let shortDate: String = "4 July 2017"
+        let shortDate: String = "4 July 2017 18:00"
         let date: Date? = shortDate.dateValueFromShortDate()
         XCTAssertNil(date)
     }

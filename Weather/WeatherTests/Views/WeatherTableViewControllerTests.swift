@@ -16,7 +16,8 @@ class WeatherTableViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        self.weatherViewController = ((UIApplication.shared.delegate as! AppDelegate).window?.rootViewController as! UINavigationController).viewControllers.first as! WeatherTableViewController
+        self.weatherViewController = WeatherTableViewController()
+        self.weatherViewController.dataService = DataService()
     }
     
     override func tearDown() {
@@ -29,7 +30,7 @@ class WeatherTableViewControllerTests: XCTestCase {
         XCTAssertNotNil(self.weatherViewController)
     }
     
-    func testDataServiceInjection() {
+    func testDataServiceInstance() {
         XCTAssertNotNil(self.weatherViewController.dataService)
     }
     

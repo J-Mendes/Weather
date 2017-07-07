@@ -7,12 +7,14 @@
 //
 
 import XCTest
+import MapKit
 @testable import Weather
 
 class NetworkServiceTests: XCTestCase {
     
-    fileprivate let validPlace: String = "Lisbon"
     fileprivate let validImage: String = "http://l.yimg.com/a/i/us/we/52/34.gif"
+    fileprivate let validPlace: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 38.727537, longitude: -9.139263)
+    fileprivate let invalidPlace: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0)
     
     fileprivate var networkService: NetworkService!
     
@@ -38,7 +40,7 @@ class NetworkServiceTests: XCTestCase {
     
     internal func testCancelRequests() {
         for _ in 0..<10 {
-            self.networkService.getWeather(place: "", completion: {_,_ in })
+            self.networkService.getWeather(place: "", units: Constants.DefaultValues.defaultUnit, completion: {_,_ in })
         }
         
         let requestExpectation: XCTestExpectation = expectation(description: "cancelTasks")
@@ -73,7 +75,7 @@ class NetworkServiceTests: XCTestCase {
     internal func testWeatherRequestSuccess() {
         let requestExpectation: XCTestExpectation = expectation(description: "weatherSuccess")
         
-        self.networkService.getWeather(place: self.validPlace) { (data: [String : Any]?, error: Error?) in
+        self.networkService.getWeather(place: Constants.DefaultValues.defaultLocation, units: Constants.DefaultValues.defaultUnit) { (data: [String : Any]?, error: Error?) in
             if error == nil && data != nil {
                 XCTAssertTrue(data!.keys.contains("query"))
             } else {
@@ -89,9 +91,48 @@ class NetworkServiceTests: XCTestCase {
     internal func testWeatherRequestFail() {
         let requestExpectation: XCTestExpectation = expectation(description: "weatherFail")
         
-        self.networkService.getWeather(place: "") { (data: [String : Any]?, error: Error?) in
+        self.networkService.getWeather(place: "", units: Constants.DefaultValues.defaultUnit) { (data: [String : Any]?, error: Error?) in
             if error == nil && data != nil {
                 XCTAssertTrue(data!.keys.contains("error"))
+            } else {
+                XCTFail()
+            }
+            
+            requestExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30.0, handler: nil)
+    }
+    
+    
+    // MARK: - Place request
+    
+    internal func testPlaceRequestSuccess() {
+        let requestExpectation: XCTestExpectation = expectation(description: "placeSuccess")
+        
+        self.networkService.getPlace(latitude: self.validPlace.latitude, longitude: self.validPlace.longitude) { (data: [String : Any]?, error: Error?) in
+            if error == nil && data != nil {
+                XCTAssertTrue(data!.keys.contains("query"))
+                XCTAssertTrue((data!["query"] as? [String: Any])!.keys.contains("results"))
+                XCTAssertFalse((data!["query"] as? [String: Any])!["results"]! is NSNull)
+            } else {
+                XCTFail()
+            }
+            
+            requestExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 30.0, handler: nil)
+    }
+    
+    internal func testPlaceRequestFail() {
+        let requestExpectation: XCTestExpectation = expectation(description: "placeFail")
+        
+        self.networkService.getPlace(latitude: self.invalidPlace.latitude, longitude: self.invalidPlace.longitude) { (data: [String : Any]?, error: Error?) in
+            if error == nil && data != nil {
+                XCTAssertTrue(data!.keys.contains("query"))
+                XCTAssertTrue((data!["query"] as? [String: Any])!.keys.contains("results"))
+                XCTAssertTrue((data!["query"] as? [String: Any])!["results"]! is NSNull)
             } else {
                 XCTFail()
             }
@@ -122,7 +163,7 @@ class NetworkServiceTests: XCTestCase {
     }
     
     internal func testImageRequestFailure() {
-        let requestExpectation: XCTestExpectation = expectation(description: "imageSuccess")
+        let requestExpectation: XCTestExpectation = expectation(description: "imageFail")
         
         self.networkService.getImage(link: "") { (image: UIImage?, error: Error?) in
             if error == nil {
