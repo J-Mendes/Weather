@@ -26,6 +26,7 @@ class WeatherTableViewController: UITableViewController {
     
     fileprivate var place: String!
     fileprivate var unitsType: Int!
+    fileprivate var dataNeedsUpdate: Bool = false
     fileprivate var weatherInfo: WeatherData? {
         didSet {
             if self.weatherInfo != nil {
@@ -59,6 +60,7 @@ class WeatherTableViewController: UITableViewController {
         // Load place
         if let place: String = UserDefaults.standard.string(forKey: Constants.UserDefaultsKeys.location) {
             self.place = place
+            self.title = self.place
         } else {
             self.place = Constants.DefaultValues.defaultLocation
             UserDefaults.standard.set(self.place, forKey: Constants.UserDefaultsKeys.location)
@@ -80,6 +82,15 @@ class WeatherTableViewController: UITableViewController {
         self.getWeatherInfo()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if self.dataNeedsUpdate {
+            self.refreshControl?.beginRefreshing()
+            self.getWeatherInfo()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -175,6 +186,7 @@ class WeatherTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.Settings.rawValue {
             let settingsViewController: SettingsTableViewController = segue.destination as! SettingsTableViewController
+            settingsViewController.delegate = self
             settingsViewController.currentLocation = self.place
             settingsViewController.currentUnit = self.unitsType
         }
@@ -198,7 +210,9 @@ class WeatherTableViewController: UITableViewController {
             if error == nil {
                 if weatherData != nil {
                     self.weatherInfo = weatherData;
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 } else {
                     ErrorView.show(view: self.view, title: NSLocalizedString("error_place", comment: ""))
                 }
@@ -208,7 +222,27 @@ class WeatherTableViewController: UITableViewController {
             
             ErrorView.dismiss(view: self.view)
             self.refreshControl?.endRefreshing()
+            self.dataNeedsUpdate = false
         })
     }
 
+}
+
+extension WeatherTableViewController: SettingsChangedDelegate {
+    
+    // MARK: - SettingsChangedDelegate
+    
+    func unitTypeChanged(unitType: Int) {
+        self.unitsType = unitType
+        self.dataNeedsUpdate = true
+    }
+    
+    func locationChanged(place: String) {
+        self.place = place
+        DispatchQueue.main.async {
+            self.title = self.place
+        }
+        self.dataNeedsUpdate = true
+    }
+    
 }

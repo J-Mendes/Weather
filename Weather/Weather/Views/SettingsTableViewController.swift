@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SettingsChangedDelegate {
+protocol SettingsChangedDelegate: class {
     func unitTypeChanged(unitType: Int)
     func locationChanged(place: String)
 }
 
 class SettingsTableViewController: UITableViewController {
     
-    internal var delegate: SettingsChangedDelegate?
+    internal weak var delegate: SettingsChangedDelegate?
     internal var currentLocation: String!
     internal var currentUnit: Int!
     
@@ -122,6 +122,7 @@ class SettingsTableViewController: UITableViewController {
             UserDefaults.standard.set(self.currentUnit, forKey: Constants.UserDefaultsKeys.units)
             UserDefaults.standard.synchronize()
             
+            self.tableView.reloadSections([SettingsType.Units.rawValue], with: .automatic)
             self.delegate?.unitTypeChanged(unitType: self.currentUnit)
             break
             
@@ -136,9 +137,22 @@ class SettingsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.LocationMap.rawValue {
             let mapViewController: LocationMapViewController = segue.destination as! LocationMapViewController
+            mapViewController.delegate = self
             mapViewController.dataService = DataService()
             mapViewController.currentLocation = self.currentLocation
         }
+    }
+    
+}
+
+extension SettingsTableViewController: LocationChangedDelegate {
+    
+    // MARK: - LocationChangedDelegate
+    
+    func locationChanged(place: String) {
+        self.currentLocation = place
+        self.tableView.reloadSections([SettingsType.Location.rawValue], with: .automatic)
+        self.delegate?.locationChanged(place: self.currentLocation)
     }
     
 }

@@ -15,6 +15,8 @@ class NetworkConstants {
     struct Url {
         static let weatherForecast: String = "\(NetworkConstants.baseUrl)?q=select * from weather.forecast where woeid in (select woeid from geo.places(1) where text=\"%@\")%@&format=json&env=store://datatables.org/alltableswithkeys"
         static let weatherUnitsModifier: String = " and u='c'"
+        
+        static let place: String = "\(NetworkConstants.baseUrl)?q=select admin1.content, admin2.content, country.code from geo.places where text=\"(%f,%f)\" limit 1&diagnostics=false&format=json"
     }
     
 }

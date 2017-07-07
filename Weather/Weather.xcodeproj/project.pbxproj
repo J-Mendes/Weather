@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		758A0DFE1F0FA041006AB9E4 /* NetworkService+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0DFD1F0FA041006AB9E4 /* NetworkService+Place.swift */; };
+		758A0E001F0FA13C006AB9E4 /* DataService+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0DFF1F0FA13C006AB9E4 /* DataService+Place.swift */; };
 		75DEDA0E1F0C2FB500297ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEDA0D1F0C2FB500297ADE /* AppDelegate.swift */; };
 		75DEDA131F0C2FB500297ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75DEDA111F0C2FB500297ADE /* Main.storyboard */; };
 		75DEDA151F0C2FB500297ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75DEDA141F0C2FB500297ADE /* Assets.xcassets */; };
@@ -73,6 +75,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		758A0DFD1F0FA041006AB9E4 /* NetworkService+Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NetworkService+Place.swift"; path = "Core Layer/Network/NetworkService+Place.swift"; sourceTree = "<group>"; };
+		758A0DFF1F0FA13C006AB9E4 /* DataService+Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DataService+Place.swift"; path = "Core Layer/Data/DataService+Place.swift"; sourceTree = "<group>"; };
 		75DEDA0A1F0C2FB500297ADE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DEDA0D1F0C2FB500297ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75DEDA121F0C2FB500297ADE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 				75DEDA3D1F0C315D00297ADE /* NetworkService.swift */,
 				75DEDA411F0C390000297ADE /* NetworkService+Weather.swift */,
 				75F1899E1F0DA1B9001DE3DF /* NetworkService+UIImage.swift */,
+				758A0DFD1F0FA041006AB9E4 /* NetworkService+Place.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 			children = (
 				75F189661F0C4835001DE3DF /* DataService.swift */,
 				75F189681F0C48A4001DE3DF /* DataService+Weather.swift */,
+				758A0DFF1F0FA13C006AB9E4 /* DataService+Place.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 				75F189761F0C56D8001DE3DF /* Astronomy.swift in Sources */,
 				75F189C11F0EE1A3001DE3DF /* SettingsTableViewController.swift in Sources */,
 				75F189A31F0DA760001DE3DF /* Date+Weather.swift in Sources */,
+				758A0E001F0FA13C006AB9E4 /* DataService+Place.swift in Sources */,
 				75F1899F1F0DA1B9001DE3DF /* NetworkService+UIImage.swift in Sources */,
 				75F189671F0C4835001DE3DF /* DataService.swift in Sources */,
 				75F189741F0C5617001DE3DF /* Atmosphere.swift in Sources */,
@@ -512,6 +519,7 @@
 				75F189691F0C48A4001DE3DF /* DataService+Weather.swift in Sources */,
 				75F1899D1F0D9DF9001DE3DF /* UIImageView+Weather.swift in Sources */,
 				75F189A61F0DAF41001DE3DF /* WeatherInfoTableViewCell.swift in Sources */,
+				758A0DFE1F0FA041006AB9E4 /* NetworkService+Place.swift in Sources */,
 				75F189C31F0EF4B6001DE3DF /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
