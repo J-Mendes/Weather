@@ -1,17 +1,17 @@
 //
-//  WeatherUITests.swift
-//  WeatherUITests
+//  SettingsTableViewControllerUITest.swift
+//  Weather
 //
-//  Created by Jorge Mendes on 04/07/17.
+//  Created by Jorge Mendes on 07/07/2017.
 //  Copyright © 2017 Jorge Mendes. All rights reserved.
 //
 
 import XCTest
 
-class WeatherUITests: XCTestCase {
+class SettingsTableViewControllerUITest: XCTestCase {
     
     fileprivate var app: XCUIApplication!
-    
+        
     override func setUp() {
         super.setUp()
         
@@ -22,6 +22,7 @@ class WeatherUITests: XCTestCase {
         
         // give some time for data to load
         sleep(3)
+        XCUIApplication().navigationBars.buttons["settings"].tap()
     }
     
     override func tearDown() {
@@ -30,10 +31,8 @@ class WeatherUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testAppBackgroundCoverView() {
-        XCUIDevice.shared().press(.home)
-        sleep(2)
-        self.app.launch()
+    func testUnitsChange() {
+        app.tables.staticTexts["Imperial"].tap()
     }
     
 }

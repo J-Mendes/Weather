@@ -11,6 +11,9 @@
 		758A0E001F0FA13C006AB9E4 /* DataService+Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0DFF1F0FA13C006AB9E4 /* DataService+Place.swift */; };
 		758A0E021F0FED32006AB9E4 /* SettingsTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E011F0FED32006AB9E4 /* SettingsTableViewControllerTests.swift */; };
 		758A0E041F0FEE82006AB9E4 /* LocationMapViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E031F0FEE82006AB9E4 /* LocationMapViewControllerTests.swift */; };
+		758A0E061F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E051F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift */; };
+		758A0E081F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E071F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift */; };
+		758A0E0A1F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758A0E091F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift */; };
 		75DEDA0E1F0C2FB500297ADE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEDA0D1F0C2FB500297ADE /* AppDelegate.swift */; };
 		75DEDA131F0C2FB500297ADE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75DEDA111F0C2FB500297ADE /* Main.storyboard */; };
 		75DEDA151F0C2FB500297ADE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75DEDA141F0C2FB500297ADE /* Assets.xcassets */; };
@@ -81,6 +84,9 @@
 		758A0DFF1F0FA13C006AB9E4 /* DataService+Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DataService+Place.swift"; path = "Core Layer/Data/DataService+Place.swift"; sourceTree = "<group>"; };
 		758A0E011F0FED32006AB9E4 /* SettingsTableViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewControllerTests.swift; path = Views/SettingsTableViewControllerTests.swift; sourceTree = "<group>"; };
 		758A0E031F0FEE82006AB9E4 /* LocationMapViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationMapViewControllerTests.swift; path = Views/LocationMapViewControllerTests.swift; sourceTree = "<group>"; };
+		758A0E051F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherTableViewControllerUITests.swift; sourceTree = "<group>"; };
+		758A0E071F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewControllerUITest.swift; sourceTree = "<group>"; };
+		758A0E091F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationMapViewControllerUITests.swift; sourceTree = "<group>"; };
 		75DEDA0A1F0C2FB500297ADE /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75DEDA0D1F0C2FB500297ADE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75DEDA121F0C2FB500297ADE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,8 +214,8 @@
 			children = (
 				75DEDA221F0C2FB500297ADE /* WeatherTests.swift */,
 				75F189BD1F0DE9C7001DE3DF /* Views */,
-				75F189B81F0DE0CD001DE3DF /* Extensions */,
 				75DEDA441F0C3C9900297ADE /* Core Layer */,
+				75F189B81F0DE0CD001DE3DF /* Extensions */,
 				75DEDA241F0C2FB500297ADE /* Info.plist */,
 			);
 			path = WeatherTests;
@@ -218,8 +224,11 @@
 		75DEDA2C1F0C2FB500297ADE /* WeatherUITests */ = {
 			isa = PBXGroup;
 			children = (
-				75DEDA2D1F0C2FB500297ADE /* WeatherUITests.swift */,
 				75DEDA2F1F0C2FB500297ADE /* Info.plist */,
+				75DEDA2D1F0C2FB500297ADE /* WeatherUITests.swift */,
+				758A0E051F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift */,
+				758A0E071F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift */,
+				758A0E091F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift */,
 			);
 			path = WeatherUITests;
 			sourceTree = "<group>";
@@ -286,9 +295,9 @@
 				75F189A81F0DBC7F001DE3DF /* Custom Views */,
 				75F189921F0D9C1B001DE3DF /* Custom Cells */,
 				75DEDA111F0C2FB500297ADE /* Main.storyboard */,
-				75F189831F0D8F83001DE3DF /* WeatherTableViewController.swift */,
-				75F189C01F0EE1A3001DE3DF /* SettingsTableViewController.swift */,
 				75F189C41F0F06EA001DE3DF /* LocationMapViewController.swift */,
+				75F189C01F0EE1A3001DE3DF /* SettingsTableViewController.swift */,
+				75F189831F0D8F83001DE3DF /* WeatherTableViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -340,9 +349,9 @@
 		75F189BD1F0DE9C7001DE3DF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75F189BE1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift */,
-				758A0E011F0FED32006AB9E4 /* SettingsTableViewControllerTests.swift */,
 				758A0E031F0FEE82006AB9E4 /* LocationMapViewControllerTests.swift */,
+				758A0E011F0FED32006AB9E4 /* SettingsTableViewControllerTests.swift */,
+				75F189BE1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -549,6 +558,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				758A0E0A1F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift in Sources */,
+				758A0E081F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift in Sources */,
+				758A0E061F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift in Sources */,
 				75DEDA2E1F0C2FB500297ADE /* WeatherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
