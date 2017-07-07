@@ -48,6 +48,7 @@ class ErrorView: UIView {
         errorView.frame = frame
         errorView.title = title
         view.addSubview(errorView)
+        view.bringSubview(toFront: errorView)
     }
     
     class func dismiss(view: UIView) {

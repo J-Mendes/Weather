@@ -82,20 +82,16 @@ class LocationMapViewController: UIViewController {
         self.dataService?.getPlace(latitude: coordinate.latitude, longitude: coordinate.longitude, completion: { (place: String?, error: Error?) in
             if error == nil && place != nil {
                 self.currentLocation = place
-                DispatchQueue.main.async {
-                    self.placeLabel.text = self.currentLocation
-                }
+                self.placeLabel.text = self.currentLocation
                 
                 UserDefaults.standard.set(self.currentLocation, forKey: Constants.UserDefaultsKeys.location)
                 UserDefaults.standard.synchronize()
                 
                 self.addCurrentLocationPin()
             } else {
-                DispatchQueue.main.async {
-                    self.infoActivityIndicator.isHidden = true
-                    self.infoText.text = NSLocalizedString("error_updating_place", comment: "")
-                    Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.hideInfoView), userInfo: nil, repeats: false)
-                }
+                self.infoActivityIndicator.isHidden = true
+                self.infoText.text = NSLocalizedString("error_updating_place", comment: "")
+                Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.hideInfoView), userInfo: nil, repeats: false)
             }
         })
     }

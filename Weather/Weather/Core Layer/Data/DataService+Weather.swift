@@ -21,12 +21,18 @@ extension DataService {
                     let channel: [String: Any] = results["channel"] as? [String: Any] {
                     
                     let weatherData: WeatherData = WeatherData(dictionary: channel)
-                    completion(weatherData, nil)
+                    DispatchQueue.main.async {
+                        completion(weatherData, nil)
+                    }
                 } else {
-                    completion(nil, nil)
+                    DispatchQueue.main.async {
+                        completion(nil, nil)
+                    }
                 }
             } else {
-                completion(nil, error)
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
             }
         }
     }
