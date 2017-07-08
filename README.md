@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/J-Mendes/Weather.svg?branch=master)](https://travis-ci.org/J-Mendes/Weather)
+
 # Weather
 
 This application uses [Yahoo Weather Services](https://developer.yahoo.com/weather/) to show the current weather and the forecast for a place that can be chosen.
