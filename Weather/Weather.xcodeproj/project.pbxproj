@@ -62,6 +62,9 @@
 		75F189CB1F0F1CF6001DE3DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75F189CD1F0F1CF6001DE3DF /* InfoPlist.strings */; };
 		75F189D01F105144001DE3DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75F189901F0D9AF1001DE3DF /* Localizable.strings */; };
 		75F189D31F105288001DE3DF /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189D21F105288001DE3DF /* TextUtils.swift */; };
+		75F189D61F108B12001DE3DF /* ConditionModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189D51F108B12001DE3DF /* ConditionModelTests.swift */; };
+		75F189D81F108C0E001DE3DF /* ForecastModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189D71F108C0E001DE3DF /* ForecastModelTests.swift */; };
+		75F189DA1F108C9A001DE3DF /* WeatherModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189D91F108C9A001DE3DF /* WeatherModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +149,9 @@
 		75F189CE1F0F1CF7001DE3DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		75F189CF1F0F1CF9001DE3DF /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		75F189D21F105288001DE3DF /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = Utils/TextUtils.swift; sourceTree = "<group>"; };
+		75F189D51F108B12001DE3DF /* ConditionModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConditionModelTests.swift; path = "Core Layer/Data Model/ConditionModelTests.swift"; sourceTree = "<group>"; };
+		75F189D71F108C0E001DE3DF /* ForecastModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ForecastModelTests.swift; path = "Core Layer/Data Model/ForecastModelTests.swift"; sourceTree = "<group>"; };
+		75F189D91F108C9A001DE3DF /* WeatherModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeatherModelTests.swift; path = "Core Layer/Data Model/WeatherModelTests.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +268,7 @@
 		75DEDA441F0C3C9900297ADE /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
+				75F189D41F108ACC001DE3DF /* Data Model */,
 				75F1897D1F0C5DD7001DE3DF /* DataServiceTests.swift */,
 				75DEDA451F0C3CB300297ADE /* NetworkServiceTests.swift */,
 			);
@@ -374,6 +381,16 @@
 				75F189D21F105288001DE3DF /* TextUtils.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		75F189D41F108ACC001DE3DF /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				75F189D51F108B12001DE3DF /* ConditionModelTests.swift */,
+				75F189D71F108C0E001DE3DF /* ForecastModelTests.swift */,
+				75F189D91F108C9A001DE3DF /* WeatherModelTests.swift */,
+			);
+			name = "Data Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -556,11 +573,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F189D81F108C0E001DE3DF /* ForecastModelTests.swift in Sources */,
 				758A0E041F0FEE82006AB9E4 /* LocationMapViewControllerTests.swift in Sources */,
+				75F189D61F108B12001DE3DF /* ConditionModelTests.swift in Sources */,
 				75F1897E1F0C5DD7001DE3DF /* DataServiceTests.swift in Sources */,
 				75DEDA461F0C3CB300297ADE /* NetworkServiceTests.swift in Sources */,
 				758A0E021F0FED32006AB9E4 /* SettingsTableViewControllerTests.swift in Sources */,
 				75F189BF1F0DE9E4001DE3DF /* WeatherTableViewControllerTests.swift in Sources */,
+				75F189DA1F108C9A001DE3DF /* WeatherModelTests.swift in Sources */,
 				75F189BA1F0DE103001DE3DF /* StringExtensionTests.swift in Sources */,
 				75F189BC1F0DE34F001DE3DF /* DateExtensionTests.swift in Sources */,
 				75DEDA231F0C2FB500297ADE /* WeatherTests.swift in Sources */,
