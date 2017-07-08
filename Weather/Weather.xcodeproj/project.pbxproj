@@ -60,6 +60,8 @@
 		75F189C51F0F06EA001DE3DF /* LocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189C41F0F06EA001DE3DF /* LocationMapViewController.swift */; };
 		75F189C81F0F09C8001DE3DF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F189C71F0F09C8001DE3DF /* MapKit.framework */; };
 		75F189CB1F0F1CF6001DE3DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75F189CD1F0F1CF6001DE3DF /* InfoPlist.strings */; };
+		75F189D01F105144001DE3DF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75F189901F0D9AF1001DE3DF /* Localizable.strings */; };
+		75F189D31F105288001DE3DF /* TextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F189D21F105288001DE3DF /* TextUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,7 @@
 		75F189CC1F0F1CF6001DE3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		75F189CE1F0F1CF7001DE3DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		75F189CF1F0F1CF9001DE3DF /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		75F189D21F105288001DE3DF /* TextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextUtils.swift; path = Utils/TextUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +232,7 @@
 				758A0E051F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift */,
 				758A0E071F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift */,
 				758A0E091F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift */,
+				75F189D11F10525D001DE3DF /* Utils */,
 			);
 			path = WeatherUITests;
 			sourceTree = "<group>";
@@ -295,9 +299,9 @@
 				75F189A81F0DBC7F001DE3DF /* Custom Views */,
 				75F189921F0D9C1B001DE3DF /* Custom Cells */,
 				75DEDA111F0C2FB500297ADE /* Main.storyboard */,
-				75F189C41F0F06EA001DE3DF /* LocationMapViewController.swift */,
-				75F189C01F0EE1A3001DE3DF /* SettingsTableViewController.swift */,
 				75F189831F0D8F83001DE3DF /* WeatherTableViewController.swift */,
+				75F189C01F0EE1A3001DE3DF /* SettingsTableViewController.swift */,
+				75F189C41F0F06EA001DE3DF /* LocationMapViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -362,6 +366,14 @@
 				75F189C71F0F09C8001DE3DF /* MapKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		75F189D11F10525D001DE3DF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				75F189D21F105288001DE3DF /* TextUtils.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +508,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75F189D01F105144001DE3DF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +574,7 @@
 				758A0E0A1F0FF6C8006AB9E4 /* LocationMapViewControllerUITests.swift in Sources */,
 				758A0E081F0FF513006AB9E4 /* SettingsTableViewControllerUITest.swift in Sources */,
 				758A0E061F0FF382006AB9E4 /* WeatherTableViewControllerUITests.swift in Sources */,
+				75F189D31F105288001DE3DF /* TextUtils.swift in Sources */,
 				75DEDA2E1F0C2FB500297ADE /* WeatherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
