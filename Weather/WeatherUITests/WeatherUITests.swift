@@ -19,9 +19,6 @@ class WeatherUITests: XCTestCase {
         
         self.app = XCUIApplication()
         self.app.launch()
-        
-        // give some time for data to load
-        sleep(3)
     }
     
     override func tearDown() {
@@ -32,8 +29,9 @@ class WeatherUITests: XCTestCase {
     
     func testAppBackgroundCoverView() {
         XCUIDevice.shared().press(.home)
-        sleep(2)
         self.app.launch()
+        
+        XCTAssertTrue(self.app.windows.element(boundBy: 0).exists)
     }
     
 }
